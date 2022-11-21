@@ -1,0 +1,35 @@
+
+  <ion-content style="position: relative;">
+    <!-- login card -->
+    <div style="top: 10%; display: flex; align-items: center; margin-left: 15em; margin-bottom: 10em; margin-top: 10em;" *ngIf="!auth.isLogged()">
+      <div class="container-form">
+        <div style="background-color: rgba(0, 0, 0, 0.541); display: flex; padding: 2em; border-radius: 15px;" class="login-card">
+          <div style="text-align: center; padding-bottom: 3em; margin-right: 2em;">
+            <div>
+              <h1>Login</h1>
+            </div>
+            <div>
+              <span style="font-size: 70%; color: rgba(177, 174, 174, 0.932);">Inserisci le tue credenziali</span>
+            </div>
+            <div style="padding-top: 1em;">
+              <img style="width: 100px;" id="logo" src="../../../../assets/images/intellitronika-symbol.svg" alt="logo intellitronika">
+            </div>
+          </div>
+
+          <div style="height: 200px; width: 2px; background-color: white; margin-right: 2em;"></div>
+
+          <form class="form-card" [formGroup]="login" (submit)="auth.login(login.value)">
+            <label for="user">Nome Utente:</label>
+            <ion-input type="text" formControlName="user" name="user" id="user"  placeholder="Nome utente"></ion-input>
+            <label for="user">Password:</label>
+            <ion-input type="password" formControlName="pass" name="pass" id="pass" placeholder="Password"></ion-input>
+            <ion-button type="submit" [disabled]="login.invalid">entra</ion-button>
+          </form>
+          <ion-item *ngIf="auth.error" color='danger' slot="error"> {{auth.errorMessage}} </ion-item>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+
+

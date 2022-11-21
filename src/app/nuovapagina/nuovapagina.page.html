@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listcheck</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-top ion-padding-start">
+  <ion-row>
+    <form style="display: flex; flex-direction: column;" #f="ngForm" (submit)="save(f)">
+      <label for="type">Category</label>
+      <select placeholder="Product type:" [ngModel] id="type" name="type">
+        <option value="Verdura">Verdura</option>
+        <option value="Carbo">Carbo</option>
+        <option value="Carne">Carne</option>
+        <option value="Bevande">Bevande</option>
+      </select>
+      <input type="text" placeholder="Product name..." [ngModel] name="product" required>
+      <input type="number" placeholder="Quantity..." [ngModel] name="quantity">
+      <input type="number" placeholder="Price..." [ngModel] name="price">
+      <ion-button type="submit">add</ion-button>
+    </form>
+  </ion-row>
+
+  <ion-row class="ion-margin-top">
+    <!-- stampa il prodotto -->
+    <div *ngFor="let product of products">
+      <!-- {{ products.data.productName }} -->
+    </div>
+    <!-- cancella il prodotto -->
+    <div>
+      <!-- <ion-icon name="trash-outline" (click)="deleteHandler(products.data.id)"></ion-icon> -->
+    </div>
+  </ion-row>
+</ion-content>

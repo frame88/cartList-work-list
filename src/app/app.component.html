@@ -1,0 +1,30 @@
+<ion-app>
+  <ion-split-pane contentId="main-content" [disabled]="!auth.isLogged()">
+    <ion-menu contentId="main-content" color="tertiary" type="overlay">
+      <ion-content>
+        <ion-list lines="none" >
+          <ion-list-header>
+            <ion-label>
+              ShoppingCart
+              <ion-icon name="cart-outline"></ion-icon>
+            </ion-label>
+          </ion-list-header>
+
+          <ion-menu-toggle auto-hide="true">
+            <ion-item routerDirection="root"  lines="none" detail="false" routerLinkActive="selected" class="online-users">
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+      <ion-item class="user-info">
+        <div class=>
+          <ion-label >{{auth.userData.nome}} {{auth.userData.cognome}}</ion-label>
+          <a href="mailto:{{ auth.userData.email }}">{{auth.userData.email}}</a>
+        </div>
+        <small style="background-color: red; padding: 1em; border-radius: 5px;" slot="end" (click)="auth.logout()">Esci</small>
+      </ion-item>
+
+    </ion-menu>
+    <ion-router-outlet  id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
