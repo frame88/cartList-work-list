@@ -16,7 +16,6 @@ import { AuthService } from '../core/login/auth.service';
 })
 export class NuovapaginaPage implements OnInit {
   products: Products[] = [];
-  product: INewProd[] = [];
 
   constructor(
     private http: HttpClient,
@@ -54,29 +53,51 @@ export class NuovapaginaPage implements OnInit {
   }
 
   add(form: NgForm) {
-    this.http.post<RespINewProd>(`${environment.API.backend}/api/ShoppingCart`, form.value)
+    const token = JSON.parse(localStorage.getItem('token')).token;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // eslint-disable-next-line quote-props
+      'Authorization': `Bearer ${token}`
+    });
+    this.http.post<RespINewProd>(`${environment.API.backend}/api/ShoppingCart`, form.value, {headers})
     .subscribe(result => {
-      this.products.push(result.data);
-      console.log(result.data);
+      // this.products.push(result.data);
+      // console.log(result.data);
+      this.getAll();
       form.reset();
     });
   }
 
   //ELIMINA IL PRODOTTO PARTICOLARE
-  /*
-  deleteHandler(product: INewProd){
-    this.http.delete(`${environment.API.backend}/api/ShoppingCart/${product.id}`)
-    .subscribe(() => {});
+
+  deleteHandler(id: number){
+    const token = JSON.parse(localStorage.getItem('token')).token;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // eslint-disable-next-line quote-props
+      'Authorization': `Bearer ${token}`
+    });
+    this.http.delete(`${environment.API.backend}/api/ShoppingCart/${id}`, {headers})
+    .subscribe(() => {
+      this.products = this.products.filter(product => product.id !== id);
+      console.log(this.products);
+    });
   }
-  */
+
 
   //MODIFICA IL PRODOTTO PARTICOLARE
-  /*
-  edit(form: NgForm) {
-    this.http.put(`${environment.API.backend}/api/ShoppingCart/${product.id}`,)
-    .subscribe(() => {});
+  edit(id: number) {
+    const token = JSON.parse(localStorage.getItem('token')).token;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // eslint-disable-next-line quote-props
+      'Authorization': `Bearer ${token}`
+    });
+    this.http.put(`${environment.API.backend}/api/ShoppingCart/${id}`, {headers})
+    .subscribe(() => {
+    });
   }
-  */
+
 
   //OTTIENE UN PRODOTTO
   //  .............

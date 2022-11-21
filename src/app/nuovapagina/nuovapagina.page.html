@@ -8,27 +8,48 @@
   <ion-row>
     <form style="display: flex; flex-direction: column;" #f="ngForm" (submit)="save(f)">
       <label for="type">Category</label>
-      <select placeholder="Product type:" [ngModel] id="type" name="type">
+      <select placeholder="Product type:" [ngModel] id="type" name="category">
         <option value="Verdura">Verdura</option>
         <option value="Carbo">Carbo</option>
         <option value="Carne">Carne</option>
         <option value="Bevande">Bevande</option>
       </select>
-      <input type="text" placeholder="Product name..." [ngModel] name="product" required>
+      <input type="text" placeholder="Product name..." [ngModel] name="productName" required>
       <input type="number" placeholder="Quantity..." [ngModel] name="quantity">
-      <input type="number" placeholder="Price..." [ngModel] name="price">
-      <ion-button type="submit">add</ion-button>
+      <input type="number" placeholder="Price..." [ngModel] name="unitCost">
+      <input type="date" [ngModel] name="orderDate">
+      <ion-button style="width: 50px; margin-top: 1em;" type="submit" color="warning"><ion-icon name="add-circle-outline"></ion-icon></ion-button>
     </form>
   </ion-row>
 
-  <ion-row class="ion-margin-top">
     <!-- stampa il prodotto -->
-    <div *ngFor="let product of products">
-      <!-- {{ products.data.productName }} -->
+    <div style="width: 50%; padding: 1em; display: flex; flex-direction: column; border: 1px solid white; border-radius: 15px; margin: 0.5em;" *ngFor="let product of products">
+      <div class="ion-margin-top">
+        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
+          <span>{{ product.category }}</span>
+          <ion-icon style="cursor: pointer; position: absolute; right: 5%;" class="ion-margin-start" name="pencil-outline"></ion-icon>
+          <ion-icon style="cursor: pointer; position: absolute; right: 0;" class="" name="trash-outline" (click)="deleteHandler(product.id)"></ion-icon>
+        </div>
+        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
+          <span>{{ product.productName }}</span>
+          <ion-icon style="cursor: pointer; position: absolute; right: 5%;" class="ion-margin-start" name="pencil-outline"></ion-icon>
+          <ion-icon style="cursor: pointer; position: absolute; right: 0;" class="" name="trash-outline" (click)="deleteHandler(product.id)"></ion-icon>
+        </div>
+        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
+          <span>{{ product.quantity }}</span>
+          <ion-icon style="cursor: pointer; position: absolute; right: 5%;" class="ion-margin-start" name="pencil-outline"></ion-icon>
+          <ion-icon style="cursor: pointer; position: absolute; right: 0;" class="" name="trash-outline" (click)="deleteHandler(product.id)"></ion-icon>
+        </div>
+        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
+          <span>{{ product.unitCost }}</span>
+          <ion-icon style="cursor: pointer; position: absolute; right: 5%;" class="ion-margin-start" name="pencil-outline"></ion-icon>
+          <ion-icon style="cursor: pointer; position: absolute; right: 0;" class="" name="trash-outline" (click)="deleteHandler(product.id)"></ion-icon>
+        </div>
+        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
+          <span>{{ product.orderDate }}</span>
+          <ion-icon style="cursor: pointer; position: absolute; right: 5%;" class="ion-margin-start" name="pencil-outline"></ion-icon>
+          <ion-icon style="cursor: pointer; position: absolute; right: 0;" class="" name="trash-outline" (click)="deleteHandler(product.id)"></ion-icon>
+        </div>
+      </div>
     </div>
-    <!-- cancella il prodotto -->
-    <div>
-      <!-- <ion-icon name="trash-outline" (click)="deleteHandler(products.data.id)"></ion-icon> -->
-    </div>
-  </ion-row>
 </ion-content>

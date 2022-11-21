@@ -89,9 +89,9 @@ export class AuthService {
 
         this.tok = res.data.token;
 
-          localStorage.setItem('token', JSON.stringify(res.data));
+        localStorage.setItem('token', JSON.stringify(res.data));
 
-          this.router.navigateByUrl('/nuovapagina', {replaceUrl: true});
+        this.router.navigateByUrl('/nuovapagina', {replaceUrl: true});
 
       }
       else if(res.errorMessage){

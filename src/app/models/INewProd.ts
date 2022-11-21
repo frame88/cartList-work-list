@@ -19,6 +19,6 @@ export interface RespINewProd
     unitCost: number;
     totalCost: number;
     orderDate: string;
-  }
+  };
 }
 //crea un nuovo prodotto
