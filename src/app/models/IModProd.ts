@@ -1,8 +1,8 @@
 export interface IModProd {
   id: number;
-  category: string;
-  productName: string;
-  quantity: number;
-  unitCost: number;
-  orderDate: string;
+  category?: string;
+  productName?: string;
+  quantity?: number;
+  unitCost?: number;
+  orderDate?: string;
 }

@@ -1,3 +1,5 @@
+import { IModProd } from './../models/IModProd';
+/* eslint-disable object-shorthand */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -16,6 +18,8 @@ import { AuthService } from '../core/login/auth.service';
 })
 export class NuovapaginaPage implements OnInit {
   products: Products[] = [];
+  infoProd;
+
 
   constructor(
     private http: HttpClient,
@@ -45,9 +49,6 @@ export class NuovapaginaPage implements OnInit {
   }
 
   save(form: NgForm) {
-    //const request = [];
-    // request.push(form.value, Date());
-    // console.log(request);
     console.log(form.value);
     this.add(form);
   }
@@ -61,8 +62,6 @@ export class NuovapaginaPage implements OnInit {
     });
     this.http.post<RespINewProd>(`${environment.API.backend}/api/ShoppingCart`, form.value, {headers})
     .subscribe(result => {
-      // this.products.push(result.data);
-      // console.log(result.data);
       this.getAll();
       form.reset();
     });
@@ -86,20 +85,42 @@ export class NuovapaginaPage implements OnInit {
 
 
   //MODIFICA IL PRODOTTO PARTICOLARE
-  edit(id: number) {
+  edit(form: NgForm, id: number) {
+    console.log(form);
+    const bodyy: IModProd =
+    {
+      id: id,
+      category: form.value.category,
+      productName: form.value.productName,
+      quantity: form.value.quantity,
+      unitCost: form.value.unitCost,
+      orderDate: form.value.orderDate
+    };
     const token = JSON.parse(localStorage.getItem('token')).token;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       // eslint-disable-next-line quote-props
       'Authorization': `Bearer ${token}`
     });
-    this.http.put(`${environment.API.backend}/api/ShoppingCart/${id}`, {headers})
+    this.http.put(`${environment.API.backend}/api/ShoppingCart`, bodyy, {headers} )
     .subscribe(() => {
+      console.log(this.products);
     });
   }
 
-
-  //OTTIENE UN PRODOTTO
-  //  .............
+  //OTTIENE INFO SU UN PRODOTTO
+  info(id: number) {
+    const token = JSON.parse(localStorage.getItem('token')).token;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // eslint-disable-next-line quote-props
+      'Authorization': `Bearer ${token}`
+    });
+    this.http.get<Products>(`${environment.API.backend}/api/ShoppingCart/${id}`, {headers} )
+    .subscribe((result: Products) => {
+      this.infoProd = result;
+      console.log('info sul prodotto particolare: ', this.infoProd);
+    });
+  }
 }
 
