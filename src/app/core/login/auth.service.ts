@@ -1,5 +1,10 @@
 /* eslint-disable quote-props */
 /* eslint-disable @typescript-eslint/naming-convention */
+/*
+import { IUserResponse } from 'src/app/models/IUserResponse';
+import { ToastController } from '@ionic/angular';
+import { IUser } from 'src/app/models/IUser';
+*/
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -7,14 +12,13 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { Subscription, interval } from 'rxjs';
 import { NavController } from '@ionic/angular';
-import { ToastController } from '@ionic/angular';
 
 import { IAuth } from 'src/app/models/IAuth';
 import { IToken } from 'src/app/models/IToken';
 import { IUserInfo } from 'src/app/models/IUserInfo';
-import { IUserResponse } from 'src/app/models/IUserResponse';
-import { IUser } from 'src/app/models/IUser';
 
+import { HttpInterceptor } from '@angular/common/http';
+import { IRefresh } from 'src/app/models/IRefresh';
 
 @Injectable({
   providedIn: 'root'
@@ -54,10 +58,9 @@ export class AuthService {
   statusInterval;
 
   constructor(
-    private http: HttpClient,
-    private router: Router,
-    private navCtrl: NavController,
-    private toastController: ToastController
+    private http: HttpClient, //servizio per comunicare backend con frontend
+    private router: Router, //servizio per navigare tra le diverse view di angular
+    private navCtrl: NavController //servizio analogo a quello sopra ma di ionic
     ){}
 
   login({user, pass }: {user: string; pass: string}) {
@@ -95,19 +98,21 @@ export class AuthService {
 
       }
       else if(res.errorMessage){
-          this.error = true;
-          this.errorMessage = res.errorMessage;
+        this.error = true;
+        this.errorMessage = res.errorMessage;
       }
     });
   }
   isLogged(){
     if(localStorage.getItem('token')){
 
-    const boh = JSON.parse(localStorage.getItem('token')).expirationDate;
-
+    const boh = JSON.parse(localStorage.getItem('token')).expirationDate; //orario in cui verrò buttato fuori
+    //boh è la data di scadenza e new Date la data attuale
     return !!(new Date(boh) < new Date() === false);
     }
   }
+
+  //esci
   logout() {
 
     this.subscriptions.forEach((sub) =>sub.unsubscribe());
@@ -121,4 +126,15 @@ export class AuthService {
     this.navCtrl.navigateRoot('/login', { animated: true, animationDirection: 'forward' });
   }
 
+  // refreshToken(token: string, refreshToken: string) {
+
+  //   this.http.post<IRefresh>(`${environment.API.backend}/api/Auth/RefreshToken`, {token, refreshToken})
+  //   .subscribe((res: IRefresh) => {
+
+  //   }
+  //   )
+
+//}
 }
+
+

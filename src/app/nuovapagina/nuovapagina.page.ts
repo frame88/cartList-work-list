@@ -23,7 +23,7 @@ export class NuovapaginaPage implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private ciao: AuthService
+    private auth: AuthService
      ) {
   this.getAll();
   }
@@ -42,7 +42,7 @@ export class NuovapaginaPage implements OnInit {
     });
 
 
-    console.log(this.ciao.tok);
+    //console.log(this.auth.tok);
 
     this.http.get<IGetAll>(`${environment.API.backend}/api/ShoppingCart`, {headers})
     .subscribe(result => this.products = result.data);

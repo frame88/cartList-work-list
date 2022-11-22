@@ -4,9 +4,9 @@
       <ion-content>
         <ion-list lines="none" >
           <ion-list-header>
-            <ion-label>
+            <ion-label style="display: flex; align-items: center;">
               ShoppingCart
-              <ion-icon name="cart-outline"></ion-icon>
+              <ion-icon name="cart-outline" style="margin-left: 5px;"></ion-icon>
             </ion-label>
           </ion-list-header>
 
@@ -21,7 +21,7 @@
           <ion-label >{{auth.userData.nome}} {{auth.userData.cognome}}</ion-label>
           <a href="mailto:{{ auth.userData.email }}">{{auth.userData.email}}</a>
         </div>
-        <small style="background-color: red; padding: 1em; border-radius: 5px;" slot="end" (click)="auth.logout()">Esci</small>
+        <small style="display: flex; align-items: center; justify-content: center; height: 60px; width: 60px; font-weight: bold; background-color: red; padding: 1em; border-radius: 50%; margin-bottom: 2em;" slot="end" (click)="auth.logout()">Esci</small>
       </ion-item>
 
     </ion-menu>
