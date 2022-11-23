@@ -11,18 +11,21 @@
     <button style="align-self: start;" id="crea" routerLink="/new" routerLinkActive="active"> crea </button>
     <!-- nuova visualizzazione prodotti -->
     <div id="prodakt" *ngFor="let product of products" style="color: white; cursor: pointer;">
-      <ion-row style="line-height: 35px; margin-bottom: 1em;">
-        <div style="width: 60vw; display: flex; justify-content: space-between; padding: 0.5em; border-radius: 15px;background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
-          <div style="width: 80%; align-self: center;">
-            <span id="nameProduct" style="text-transform: capitalize;">{{ product.productName }}</span>
+      <ion-row style="line-height: 25px; margin-bottom: 1em;">
+        <div style="width: 60vw; display: flex; justify-content: space-between; align-items: center;; padding: 0.5em; border-radius: 15px;background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
+          <div routerLink="/detail" routerLinkActive="active" style="width: 80%; align-self: center;">
+            <div style="display: flex;">
+              <span id="nameProduct" style="text-transform: capitalize;">{{ product.productName }} | </span>
+              <span style="font-size: 70%; color: yellow; margin-left: 5px;">{{ product.unitCost }}€</span>
+            </div>
             <span style="text-transform: capitalize; font-size: 12px;">iD: {{ product.id }}</span>
           </div>
-          <div style="width: 20%; display: flex; justify-content: space-around; align-items: center; border: 1px solid white; border: 1px solid white; background-color: rgba(255, 255, 255, 0.575); padding: 0.5em; border-radius: 15px;">
-            <ion-icon routerLink="/detail" routerLinkActive="active" style="border: 1px solid white; cursor: pointer; background-color: rgb(0, 236, 91); padding: 5px; border-radius: 50%;"
+          <div style="width: 20%; display: flex; justify-content: space-around; align-items: center; border: 1px solid white; border: 1px solid white; background-color: rgba(255, 255, 255, 0.575); padding: 0.5em; border-radius: 15px; height: 20px;">
+            <ion-icon routerLink="/detail" routerLinkActive="active" style="border: 1px solid white; cursor: pointer; background-color: rgb(0, 236, 91); padding: 10px; border-radius: 50%;"
               name="information-circle-outline" (click)="info(product.id)"></ion-icon>
-            <ion-icon routerLink="/update" routerLinkActive="active" style="border: 1px solid white; cursor: pointer; background-color: rgb(157, 0, 255); padding: 5px; border-radius: 50%;"
+            <ion-icon routerLink="/update" routerLinkActive="active" style="border: 1px solid white; cursor: pointer; background-color: rgb(157, 0, 255); padding: 10px; border-radius: 50%;"
               name="pencil-outline"></ion-icon>
-              <ion-icon style="border: 1px solid white; cursor: pointer;background-color: red; padding: 5px; border-radius: 50%;" name="trash-outline"
+              <ion-icon style="border: 1px solid white; cursor: pointer;background-color: red; padding: 10px; border-radius: 50%;" name="trash-outline"
               (click)="deleteHandler(product.id)"></ion-icon>
             </div>
           </div>

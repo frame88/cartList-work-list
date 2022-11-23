@@ -5,10 +5,18 @@
 </ion-header>
 
 <ion-content>
+  <ion-row>
+    <button id="indietro" routerLink="/nuovapagina" routerLinkActive="active">
+      <ion-icon class="ion-no-margin" name="chevron-back-outline"></ion-icon>
+      indietro
+    </button>
+  </ion-row>
   <div class="ion-margin ion-padding-top">
     <form style="display: flex; flex-direction: column;width: 40%;" #g="ngForm">
+      <ion-label>ID</ion-label>
+      <input style="margin-bottom: 0.7em; border: hidden; border-top: 2px solid gray;border-right: 2px solid gray; border-radius: 0px 10px 5px 5px;" type="number" placeholder="id..." [ngModel] name="id" required>
       <ion-label>Categoria</ion-label>
-      <input style="margin-bottom: 0.7em;" type="text" placeholder="Categoria..." [ngModel] name="category" required>
+      <input style="margin-bottom: 0.7em; border: hidden; border-bottom: 1px solid gray;" type="text" placeholder="Categoria..." [ngModel] name="category" required>
       <!-- <select style="margin-bottom: 0.7em;" placeholder="Product type:" [ngModel] id="type" name="category">
          <option value="Verdura">Verdura</option>
         <option value="Carbo">Carbo</option>
@@ -16,17 +24,17 @@
         <option value="Bevande">Bevande</option>
       </select> -->
       <ion-label>Product name</ion-label>
-      <input style="margin-bottom: 0.7em;" type="text" placeholder="Product name..." [ngModel] name="productName"
+      <input style="margin-bottom: 0.7em; border: hidden; border-bottom: 1px solid gray;" type="text" placeholder="Product name..." [ngModel] name="productName"
         required>
 
       <ion-label>Quantity</ion-label>
-      <input style="margin-bottom: 0.7em;" type="number" min="1" placeholder="Quantity..." [ngModel] name="quantity">
+      <input style="margin-bottom: 0.7em; border: hidden; border: hidden; border-bottom: 1px solid gray;" type="number" min="1" placeholder="Quantity..." [ngModel] name="quantity">
 
       <ion-label>Price</ion-label>
-      <input style="margin-bottom: 0.7em;" type="number" min="1" placeholder="Price..." [ngModel] name="unitCost">
+      <input style="margin-bottom: 0.7em; border: hidden; border-bottom: 1px solid gray;" type="number" min="1" placeholder="Price..." [ngModel] name="unitCost">
 
       <ion-label>Date</ion-label>
-      <input style="margin-bottom: 0.7em;" type="date" [ngModel] name="orderDate">
+      <input style="margin-bottom: 0.7em; border: hidden; border-bottom: 2px solid gray; border-right: 2px solid gray; border-radius: 0px 5px 10px 5px;" type="date" [ngModel] name="orderDate">
       <ion-row>
         <div
           style="display: flex; width: 100%; justify-content: end; align-items: center; margin-top: 1em; transform: translateX(7em);">
@@ -34,9 +42,6 @@
           <button id="mod"
             type="submit">
             <ion-icon (click)="edit(g, g.value.id)" style="color: white; font-size: 150%;" name="pencil-outline"></ion-icon>
-          </button>
-          <button id="indietro" routerLink="/nuovapagina" routerLinkActive="active">
-            indietro
           </button>
         </div>
       </ion-row>

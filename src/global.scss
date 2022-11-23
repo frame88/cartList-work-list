@@ -28,14 +28,17 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 #indietro {
+  display: flex;
+  align-items: center;
   padding: 1em;
   margin: 1em;
-  background-color: yellowgreen;
+  background-color: hsl(80, 61%, 50%);
   color: white;
   border-radius: 5px;
   &:hover {
     transform: scale(1.1) !important;
     transition-duration: 0.1s;
+    background-color: hsl(80, 61%, 44%);
   }
 }
 

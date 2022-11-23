@@ -3,8 +3,8 @@
     <ion-menu contentId="main-content" color="tertiary" type="overlay">
       <ion-content>
         <ion-list lines="none" >
-          <ion-list-header>
-            <ion-label style="display: flex; align-items: center;">
+          <ion-list-header style="border-radius: 15px; margin: 0; padding: 0; padding-left: 1em;">
+            <ion-label class style="display: flex; align-items: center;">
               ShoppingCart
               <ion-icon name="cart-outline" style="margin-left: 5px;"></ion-icon>
             </ion-label>
@@ -16,8 +16,10 @@
           </ion-menu-toggle>
         </ion-list>
       </ion-content>
-      <ion-item class="user-info">
-        <span id="esci" slot="end" (click)="auth.logout()">Esci</span>
+      <ion-item class="user-info ion-margin-bottom">
+        <div style="width: 100%; display: flex; justify-content: end;" class="ion-padding-top ion-no-margin ">
+          <span id="esci" slot="end" (click)="auth.logout()">Esci</span>
+        </div>
       </ion-item>
 
     </ion-menu>

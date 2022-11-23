@@ -6,7 +6,7 @@
 }
 
 ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+  --background: var(--ion-item-background, var(--ion-background-color, rgba(0, 0, 255, 0.37)));
 }
 
 ion-menu.md ion-content {

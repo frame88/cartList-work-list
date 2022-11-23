@@ -1,14 +1,18 @@
 #crea {
-  text-transform: uppercase;
+  text-transform: capitalize;
   padding: 1em;
   margin-bottom: 1em;
   border-radius: 10px;
   background-color: yellowgreen;
+  border: 1px solid yellowgreen;
   color: white;
 
   &:hover {
     transform: scale(1.1) !important;
-    transition-duration: 0.1s;
+    color: yellowgreen;
+    background-color: white;
+    border: 1px solid rgba(153, 205, 50, 0.411);
+    transition-duration: 0.4s;
   }
 }
 
@@ -16,21 +20,20 @@ input {
   margin-top: 1em;
 }
 
-span
-{
+span {
   display: block;
 }
 
 
 ion-icon:hover {
-  transform: scale(1.8)!important;
+  transform: scale(1.4)!important;
   border-radius: 25%;
   //border: 2px solid white!important;
   transition-duration: 0.5s;
 }
 
 #prodakt:hover {
-  transform: scale(1.1)!important;
+  transform: scale(1.05)!important;
   transition-duration: 0.5s;
 
   #nameProduct {

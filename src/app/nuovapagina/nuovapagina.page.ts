@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 import { AuthGuard } from './../core/login/auth.guard';
 import { IModProd } from './../models/IModProd';
 /* eslint-disable object-shorthand */
@@ -20,6 +21,8 @@ import { AuthService } from '../core/login/auth.service';
 export class NuovapaginaPage implements OnInit {
   products: Products[] = [];
   infoProd;
+
+  idhiz;
 
 
   constructor(
@@ -114,14 +117,29 @@ export class NuovapaginaPage implements OnInit {
     const token = JSON.parse(localStorage.getItem('token')).token;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      // eslint-disable-next-line quote-props
       'Authorization': `Bearer ${token}`
     });
-    this.http.get<Products>(`${environment.API.backend}/api/ShoppingCart/${id}`, {headers} )
+    this.http.get<Products>(`${environment.API.backend}/api/ShoppingCart/${id}`, {headers})
     .subscribe((result: Products) => {
       this.infoProd = result;
       console.log('info sul prodotto particolare: ', this.infoProd);
+      /*in queste due righe sotto, ottengo l'id particolare che voreri passarmi
+      nell'altro file, dopodichè, copio la funzione getall() nell altro file, e faccio un ciclo
+      con prdocutINproducts, e trovo tramite l'id i dati che mi servono.
+      Tutto sta nel passare la variabile.
+
+      In alternativa potrei, portarmi tutto il modello dal file nuovapagina
+      al file detail, cosi da non dover rifare la chiamata e un ciclo for
+      in detail.page
+
+      => come passo una variabile? che sia un id o un array...
+      */
+      this.idhiz = id;
+      console.log(id, this.idhiz);
     });
   }
+
+
+
 }
 
