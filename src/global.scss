@@ -27,5 +27,15 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
+#indietro {
+  padding: 1em;
+  margin: 1em;
+  background-color: yellowgreen;
+  color: white;
+  border-radius: 5px;
+  &:hover {
+    transform: scale(1.1) !important;
+    transition-duration: 0.1s;
+  }
+}
 

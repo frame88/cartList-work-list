@@ -3,28 +3,33 @@
     <!-- login card -->
     <div style="top: 10%; display: flex; align-items: center; margin-left: 15em; margin-bottom: 10em; margin-top: 10em;" *ngIf="!auth.isLogged()">
       <div class="container-form">
-        <div style="background-color: rgba(0, 0, 0, 0.541); display: flex; padding: 2em; border-radius: 15px;" class="login-card">
+        <div style="background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%); display: flex; padding: 2em; border-radius: 15px;" class="login-card">
           <div style="text-align: center; display: flex; flex-direction: column; justify-content: center; padding-right: 2em;">
             <div>
-              <h1>Login</h1>
+              <h1 style="color: white;">Login</h1>
             </div>
             <div>
-              <span style="font-size: 70%; color: rgba(177, 174, 174, 0.932);">Inserisci le tue credenziali</span>
+              <span style="font-size: 70%; color: white;">Inserisci le tue credenziali</span>
+            </div>
+            <div style="display: flex; align-items: center; margin-top: 10px; margin-bottom: 1em;">
+              <div style="background-color: white; height: 3px; width: 100px; margin-right: 10px; border-radius: 50% 0px 0px 50%;"></div>
+              <div style="background-color: white; height: 20px; width: 20px; border-radius: 50%;"></div>
+              <div style="background-color: white; height: 3px; width: 100px; margin-left: 10px; border-radius: 0px 50% 50% 0px;"></div>
             </div>
             <div style="padding-top: 1em;">
-              <img style="width: 100px;" id="logo" src="../../../../assets/images/intellitronika-symbol.svg" alt="logo intellitronika">
+              <img style=" width: 100px;" id="logo" src="../../../../assets/images/intellitronika-symbol.svg" alt="logo intellitronika">
             </div>
           </div>
 
           <div style="height: 250px; width: 2px; background-color: white; margin-right: 2em;"></div>
 
-          <div style="display: flex; align-items: center;">
+          <div style="display: flex; align-items: center; color: white;">
             <form class="form-card" [formGroup]="login" (submit)="auth.login(login.value)">
               <label for="user">Nome Utente:</label>
-              <ion-input type="text" formControlName="user" name="user" id="user"  placeholder="Nome utente"></ion-input>
+              <ion-input style="border-radius: 15px!important;" type="text" formControlName="user" name="user" id="user"  placeholder="Nome utente"></ion-input>
               <label for="user">Password:</label>
               <ion-input type="password" formControlName="pass" name="pass" id="pass" placeholder="Password"></ion-input>
-              <ion-button color="warning" type="submit" [disabled]="login.invalid"><ion-icon name="enter-outline"></ion-icon></ion-button>
+              <button type="submit" [disabled]="login.invalid">Entra</button>
             </form>
           </div>
           <ion-item *ngIf="auth.error" color='danger' slot="error"> {{auth.errorMessage}} </ion-item>

@@ -1,3 +1,4 @@
+import { AuthGuard } from './../core/login/auth.guard';
 import { IModProd } from './../models/IModProd';
 /* eslint-disable object-shorthand */
 /* eslint-disable @typescript-eslint/naming-convention */
@@ -42,7 +43,7 @@ export class NuovapaginaPage implements OnInit {
     });
 
 
-    //console.log(this.auth.tok);
+    console.log(this.auth.tok);
 
     this.http.get<IGetAll>(`${environment.API.backend}/api/ShoppingCart`, {headers})
     .subscribe(result => this.products = result.data);

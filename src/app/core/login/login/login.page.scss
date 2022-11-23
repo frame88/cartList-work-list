@@ -1,1 +1,17 @@
+ion-input {
+  margin-top: 0.3em;
+  margin-bottom: 1em;
+  border-radius: 15px !important;
+}
 
+button {
+  background-color: red;
+  padding: 1em;
+  border-radius: 10px;
+  color: white;
+  &:hover {
+      transform: scale(0.7) !important;
+      transition-duration: 0.5s;
+      cursor: pointer;
+    }
+}

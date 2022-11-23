@@ -1,3 +1,17 @@
+#crea {
+  text-transform: uppercase;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  background-color: yellowgreen;
+  color: white;
+
+  &:hover {
+    transform: scale(1.1) !important;
+    transition-duration: 0.1s;
+  }
+}
+
 input {
   margin-top: 1em;
 }
@@ -5,4 +19,28 @@ input {
 span
 {
   display: block;
+}
+
+
+ion-icon:hover {
+  transform: scale(1.8)!important;
+  border-radius: 25%;
+  //border: 2px solid white!important;
+  transition-duration: 0.5s;
+}
+
+#prodakt:hover {
+  transform: scale(1.1)!important;
+  transition-duration: 0.5s;
+
+  #nameProduct {
+    margin-left: 5em;
+    font-size: 28px;
+    letter-spacing: .1rem;
+    transition-duration: 0.8s;
+    &:hover{
+      letter-spacing: .2rem;
+      transition-duration: 0.8s;
+    }
+  }
 }

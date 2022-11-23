@@ -1,68 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>listcheck</ion-title>
+    <div>
+      <ion-title>Carrello</ion-title>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding-top ion-padding-start">
-  <ion-row>
-    <form style="display: flex; flex-direction: column;" #f="ngForm" (submit)="save(f)">
-      <label for="type">Crea</label>
-      <select placeholder="Product type:" [ngModel] id="type" name="category">
-        <option value="Verdura">Verdura</option>
-        <option value="Carbo">Carbo</option>
-        <option value="Carne">Carne</option>
-        <option value="Bevande">Bevande</option>
-      </select>
-      <input type="text" placeholder="Product name..." [ngModel] name="productName" required>
-      <input type="number" placeholder="Quantity..." [ngModel] name="quantity">
-      <input type="number" placeholder="Price..." [ngModel] name="unitCost">
-      <input type="date" [ngModel] name="orderDate">
-      <ion-row>
-        <button style="width: 50px; margin-top: 1em; padding: 0.5em; border-radius: 50%; background-color: rgb(255, 217, 0);" type="submit">
-          <ion-icon style="color: black; font-size: 150%;" name="add-circle-outline"></ion-icon>
-        </button>
-      </ion-row>
-    </form>
-
-    <form #g="ngForm" style="display: flex; flex-direction: column; margin-left: 1em;">
-      <label for="type">Modifica  </label>
-      <select placeholder="Product type:" [ngModel] id="type" name="category">
-        <option value="Verdura">Verdura</option>
-        <option value="Carbo">Carbo</option>
-        <option value="Carne">Carne</option>
-        <option value="Bevande">Bevande</option>
-      </select>
-      <input type="text" placeholder="name" [ngModel] name="productName" required>
-      <input type="number" placeholder="quantity" [ngModel] name="quantity" required>
-      <input type="number" placeholder="unitCost" [ngModel] name="unitCost" required>
-      <input type="date" placeholder="orderDate" [ngModel] name="orderDate" required>
-    </form>
-  </ion-row>
-
-  <div style="display: flex; flex-wrap: wrap; margin-top: 2em;">
-    <!-- stampa il prodotto -->
-    <div style="width: 25%; padding: 1em; display: flex; flex-direction: column; border: 1px solid white; border-radius: 15px; margin: 0.5em; background-color: rgba(3, 38, 93, 0.482);" *ngFor="let product of products">
-      <div class="ion-margin-top">
-        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
-          <span>{{ product.category }}</span>
-          <ion-icon style="cursor: pointer;  position: absolute; right: 3em; background-color: rgb(0, 255, 98); padding: 5px; border-radius: 50%;" name="information-circle-outline" (click)="info(product.id)"></ion-icon>
-          <ion-icon style="cursor: pointer; position: absolute; right: 1.5em; background-color: rgb(157, 0, 255); padding: 5px; border-radius: 50%;" class="ion-margin-start" name="pencil-outline" (click)="edit(g, product.id)"></ion-icon>
-          <ion-icon style="cursor: pointer; position: absolute; right: 0; background-color: red; padding: 5px; border-radius: 50%;" name="trash-outline" (click)="deleteHandler(product.id)"></ion-icon>
-        </div>
-        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
-          <span>{{ product.productName }}</span>
-        </div>
-        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
-          <span>{{ product.quantity }}</span>
-        </div>
-        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
-          <span>{{ product.unitCost }}€</span>
-        </div>
-        <div style="display: flex; position: relative; margin-bottom: 0.3em;">
-          <span>{{ product.orderDate }}</span>
-        </div>
-      </div>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <button style="align-self: start;" id="crea" routerLink="/new" routerLinkActive="active"> crea </button>
+    <!-- nuova visualizzazione prodotti -->
+    <div id="prodakt" *ngFor="let product of products" style="color: white; cursor: pointer;">
+      <ion-row style="line-height: 35px; margin-bottom: 1em;">
+        <div style="width: 60vw; display: flex; justify-content: space-between; padding: 0.5em; border-radius: 15px;background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
+          <div style="width: 80%; align-self: center;">
+            <span id="nameProduct" style="text-transform: capitalize;">{{ product.productName }}</span>
+            <span style="text-transform: capitalize; font-size: 12px;">iD: {{ product.id }}</span>
+          </div>
+          <div style="width: 20%; display: flex; justify-content: space-around; align-items: center; border: 1px solid white; border: 1px solid white; background-color: rgba(255, 255, 255, 0.575); padding: 0.5em; border-radius: 15px;">
+            <ion-icon routerLink="/detail" routerLinkActive="active" style="border: 1px solid white; cursor: pointer; background-color: rgb(0, 236, 91); padding: 5px; border-radius: 50%;"
+              name="information-circle-outline" (click)="info(product.id)"></ion-icon>
+            <ion-icon routerLink="/update" routerLinkActive="active" style="border: 1px solid white; cursor: pointer; background-color: rgb(157, 0, 255); padding: 5px; border-radius: 50%;"
+              name="pencil-outline"></ion-icon>
+              <ion-icon style="border: 1px solid white; cursor: pointer;background-color: red; padding: 5px; border-radius: 50%;" name="trash-outline"
+              (click)="deleteHandler(product.id)"></ion-icon>
+            </div>
+          </div>
+        </ion-row>
     </div>
   </div>
+
 </ion-content>

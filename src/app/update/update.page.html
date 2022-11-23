@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modifica il tuo prodotto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin ion-padding-top">
+    <form style="display: flex; flex-direction: column;width: 40%;" #g="ngForm">
+      <ion-label>Categoria</ion-label>
+      <input style="margin-bottom: 0.7em;" type="text" placeholder="Categoria..." [ngModel] name="category" required>
+      <!-- <select style="margin-bottom: 0.7em;" placeholder="Product type:" [ngModel] id="type" name="category">
+         <option value="Verdura">Verdura</option>
+        <option value="Carbo">Carbo</option>
+        <option value="Carne">Carne</option>
+        <option value="Bevande">Bevande</option>
+      </select> -->
+      <ion-label>Product name</ion-label>
+      <input style="margin-bottom: 0.7em;" type="text" placeholder="Product name..." [ngModel] name="productName"
+        required>
+
+      <ion-label>Quantity</ion-label>
+      <input style="margin-bottom: 0.7em;" type="number" min="1" placeholder="Quantity..." [ngModel] name="quantity">
+
+      <ion-label>Price</ion-label>
+      <input style="margin-bottom: 0.7em;" type="number" min="1" placeholder="Price..." [ngModel] name="unitCost">
+
+      <ion-label>Date</ion-label>
+      <input style="margin-bottom: 0.7em;" type="date" [ngModel] name="orderDate">
+      <ion-row>
+        <div
+          style="display: flex; width: 100%; justify-content: end; align-items: center; margin-top: 1em; transform: translateX(7em);">
+          <!-- TASTO MODIFICA PRODOTTO -->
+          <button id="mod"
+            type="submit">
+            <ion-icon (click)="edit(g, g.value.id)" style="color: white; font-size: 150%;" name="pencil-outline"></ion-icon>
+          </button>
+          <button id="indietro" routerLink="/nuovapagina" routerLinkActive="active">
+            indietro
+          </button>
+        </div>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>
+
+<!-- <ion-content>
+  <div style="width: 50%;">
+  </div>
+
+  <button id="indietro" routerLink="/nuovapagina" routerLinkActive="active">
+    indietro
+  </button>
+
+  <form #g="ngForm" style="display: flex; flex-direction: column; margin-left: 1em; width: 20%;">
+    <label for="type">Modifica </label>
+    <select placeholder="Product type:" [ngModel] id="type" name="category">
+      <option value="Verdura">Verdura</option>
+      <option value="Carbo">Carbo</option>
+      <option value="Carne">Carne</option>
+      <option value="Bevande">Bevande</option>
+    </select>
+    <input type="text" placeholder="name" [ngModel] name="productName" required>
+    <input type="number" placeholder="quantity" [ngModel] name="quantity" required>
+    <input type="number" placeholder="unitCost" [ngModel] name="unitCost" required>
+    <input type="date" placeholder="orderDate" [ngModel] name="orderDate" required>
+  </form>
+  <ion-icon
+    style="cursor: pointer; position: absolute; right: 1.5em; background-color: rgb(157, 0, 255); padding: 0.5em 2em; border-radius: 5px; color: white"
+    class="ion-margin-start" name="" (click)="edit(g, g.value.id)">
+  </ion-icon>
+
+</ion-content> -->
+
+
+

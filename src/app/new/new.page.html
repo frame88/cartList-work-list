@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crea un nuovo prodotto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin ion-padding-top">
+    <form style="display: flex; flex-direction: column;width: 40%;" #f="ngForm" (submit)="save(f)">
+      <ion-label>Categoria</ion-label>
+      <input style="margin-bottom: 0.7em;" type="text" placeholder="Categoria..." [ngModel] name="category" required>
+      <!-- <select style="margin-bottom: 0.7em;" placeholder="Product type:" [ngModel] id="type" name="category">
+         <option value="Verdura">Verdura</option>
+        <option value="Carbo">Carbo</option>
+        <option value="Carne">Carne</option>
+        <option value="Bevande">Bevande</option>
+      </select> -->
+      <ion-label>Product name</ion-label>
+      <input style="margin-bottom: 0.7em;" type="text" placeholder="Product name..." [ngModel] name="productName" required>
+
+      <ion-label>Quantity</ion-label>
+      <input style="margin-bottom: 0.7em;" type="number" min="1" placeholder="Quantity..." [ngModel] name="quantity">
+
+      <ion-label>Price</ion-label>
+      <input style="margin-bottom: 0.7em;" type="number" min="1" placeholder="Price..." [ngModel] name="unitCost">
+
+      <ion-label>Date</ion-label>
+      <input style="margin-bottom: 0.7em;" type="date" [ngModel] name="orderDate">
+      <ion-row>
+        <div style="display: flex; width: 100%; justify-content: end; align-items: center; margin-top: 1em; transform: translateX(7em);">
+          <button
+            style="width: 50px; height: 50px; padding: 0.5em; border-radius: 50%; background-color: red;"
+            type="submit">
+            <ion-icon style="color: white; font-size: 150%;" name="add-circle-outline"></ion-icon>
+          </button>
+          <button id="indietro" routerLink="/nuovapagina" routerLinkActive="active">
+            indietro
+          </button>
+        </div>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>
