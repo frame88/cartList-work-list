@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Products } from '../models/IGetAll';
 import { Router } from '@angular/router';
-
+import { IGetAll } from '../models/IGetAll';
+import { getLocaleCurrencyCode } from '@angular/common';
 @Component({
   selector: 'app-update',
   templateUrl: './update.page.html',
@@ -45,8 +46,8 @@ export class UpdatePage implements OnInit {
     .subscribe(() => {
       console.log(this.products);
     });
+
     this.router.navigateByUrl('nuovapagina');
 
   }
-
 }

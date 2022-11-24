@@ -1,15 +1,13 @@
 /* eslint-disable quote-props */
-import { AuthGuard } from './../core/login/auth.guard';
 import { IModProd } from './../models/IModProd';
 /* eslint-disable object-shorthand */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IAddProdakt } from '../models/IAddProdakt';
 
 import { IGetAll, Products } from '../models/IGetAll';
-import { INewProd, RespINewProd } from '../models/INewProd';
+import { RespINewProd } from '../models/INewProd';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../core/login/auth.service';
 
@@ -21,16 +19,14 @@ import { AuthService } from '../core/login/auth.service';
 export class NuovapaginaPage implements OnInit {
   products: Products[] = [];
   infoProd;
-
-  idhiz;
-
+  iddi;
 
   constructor(
     private http: HttpClient,
     private auth: AuthService
      ) {
-  this.getAll();
-  }
+        this.getAll();
+      }
 
   ngOnInit() {
   }
@@ -44,12 +40,12 @@ export class NuovapaginaPage implements OnInit {
       // eslint-disable-next-line quote-props
       'Authorization': `Bearer ${token}`
     });
-
-
-    console.log(this.auth.tok);
-
+    //console.log(this.auth.tok);
     this.http.get<IGetAll>(`${environment.API.backend}/api/ShoppingCart`, {headers})
-    .subscribe(result => this.products = result.data);
+    .subscribe(result => {
+      this.products = result.data;
+      console.log(this.products);
+    });
   }
 
   save(form: NgForm) {
@@ -134,8 +130,8 @@ export class NuovapaginaPage implements OnInit {
 
       => come passo una variabile? che sia un id o un array...
       */
-      this.idhiz = id;
-      console.log(id, this.idhiz);
+      this.iddi = id;
+      console.log(id, this.iddi);
     });
   }
 

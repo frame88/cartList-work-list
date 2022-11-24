@@ -13,8 +13,11 @@ import { NuovapaginaPage } from './nuovapagina.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    NuovapaginaPageRoutingModule
+    NuovapaginaPageRoutingModule,
+
   ],
-  declarations: [NuovapaginaPage]
+  declarations: [
+    NuovapaginaPage,
+  ]
 })
 export class NuovapaginaPageModule {}
