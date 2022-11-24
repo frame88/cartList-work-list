@@ -4,7 +4,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<div id="container-list" style="height: 100%;">
+
   <button id="indietro" routerLink="/nuovapagina" routerLinkActive="active">
     <ion-icon name="chevron-back-outline"></ion-icon>indietro
   </button>
@@ -19,7 +20,7 @@
         <option value="Bevande">Bevande</option>
       </select> -->
       <ion-label>Product name</ion-label>
-      <input style="margin-bottom: 0.7em;margin-bottom: 0.7em; border: hidden; border-bottom: 1px solid gray;" type="text" maxlength="10" placeholder="Product name..." [ngModel] name="productName">
+      <input style="margin-bottom: 0.7em;margin-bottom: 0.7em; border: hidden; border-bottom: 1px solid gray;" type="text" maxlength="20" placeholder="Product name..." [ngModel] name="productName">
 
       <ion-label>Quantity</ion-label>
       <input style="margin-bottom: 0.7em;margin-bottom: 0.7em; border: hidden; border-bottom: 1px solid gray;" type="number" min="1" placeholder="Quantity..." [ngModel] name="quantity">
@@ -31,8 +32,7 @@
       <input style="margin-bottom: 0.7em; border: hidden; border-bottom: 2px solid gray; border-right: 2px solid gray; border-radius: 0px 5px 10px 5px;" type="date" [ngModel] name="orderDate">
       <ion-row>
         <div style="display: flex; width: 100%; justify-content: end; align-items: center; margin-top: 1em; transform: translateX(7em);">
-          <button
-            style="width: 50px; height: 50px; padding: 0.5em; border-radius: 50%; background-color: red;"
+          <button id="button-new-item"
             type="submit">
             <ion-icon style="color: white; font-size: 150%;" name="add-circle-outline"></ion-icon>
           </button>
@@ -40,4 +40,5 @@
       </ion-row>
     </form>
   </div>
-</ion-content>
+</div>
+

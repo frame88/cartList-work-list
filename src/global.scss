@@ -42,3 +42,30 @@
   }
 }
 
+input:focus {
+  border: none;
+  outline: none;
+}
+
+//scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.745);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+#container-list {
+  background: #642B73;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #C6426E, #642B73);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #C6426E, #642B73);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

@@ -6,12 +6,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding-top ion-padding-start">
+
+<div id="container-list" style="padding: 1em; overflow:scroll; height: 100%;">
   <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <button style="align-self: start;" id="crea" routerLink="/new" routerLinkActive="active"> crea </button>
+    <button style="align-self: start; display: flex; align-items: center;" id="crea"
+     routerLink="/new" routerLinkActive="active"><ion-icon style="font-size: 150%; margin-right: 5px;" name="add-circle-outline"></ion-icon>crea </button>
     <!-- nuova visualizzazione prodotti -->
     <div id="prodakt" *ngFor="let product of products" style="color: white; cursor: pointer;">
-      <ion-row style="line-height: 25px; margin-bottom: 1em;">
+      <ion-row style="line-height: 25px; margin-bottom: 1em;  border: 1px solid white; border-radius: 15px;">
         <div style="width: 60vw; display: flex; justify-content: space-between; align-items: center;; padding: 0.5em; border-radius: 15px;background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
           <div routerLink="/detail" routerLinkActive="active" style="width: 80%; align-self: center;">
             <div style="display: flex;">
@@ -32,5 +34,5 @@
         </ion-row>
     </div>
   </div>
+</div>
 
-</ion-content>

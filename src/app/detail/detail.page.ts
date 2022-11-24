@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Products } from '../models/IGetAll';
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -17,6 +17,7 @@ export class DetailPage implements OnInit {
   infoProd;
 
   constructor(
+    activatedRoute: ActivatedRoute,
     private http: HttpClient) { }
 
   ngOnInit() {

@@ -11,3 +11,17 @@ ion-label {
   font-size: 10px;
   border-radius: 5px 5px 0px 0px;
 }
+
+#button-new-item {
+  width: 50px;
+  height: 50px;
+  padding: 0.5em;
+  border-radius: 50%;
+  background-color: red;
+
+  &:hover {
+      transform: scale(1.1) !important;
+      //transform: scale(0.9) !important; POTREBBE, MA NON MI CONVINCE
+      transition-duration: 0.1s;
+    }
+}

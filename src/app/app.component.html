@@ -2,19 +2,19 @@
   <ion-split-pane contentId="main-content" [disabled]="!auth.isLogged()">
     <ion-menu contentId="main-content" color="tertiary" type="overlay">
       <ion-content>
-        <ion-list lines="none" >
+        <ion-list lines="none" style=" background-color: rgba(0, 0, 255, 0.37); border-radius: 15px;">
           <ion-list-header style="border-radius: 15px; margin: 0; padding: 0; padding-left: 1em;">
-            <ion-label class style="display: flex; align-items: center;">
-              ShoppingCart
-              <ion-icon name="cart-outline" style="margin-left: 5px;"></ion-icon>
-            </ion-label>
-          </ion-list-header>
+              <ion-label class style="display: flex; align-items: center; color: white;">
+                ShoppingCart
+                <ion-icon name="cart-outline" style="margin-left: 5px;"></ion-icon>
+              </ion-label>
+            </ion-list-header>
 
-          <ion-menu-toggle auto-hide="true">
-            <ion-item routerDirection="root"  lines="none" detail="false" routerLinkActive="selected" class="online-users">
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+            <ion-menu-toggle auto-hide="true">
+              <ion-item routerDirection="root"  lines="none" detail="false" routerLinkActive="selected" class="online-users">
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
       </ion-content>
       <ion-item class="user-info ion-margin-bottom">
         <div style="width: 100%; display: flex; justify-content: end;" class="ion-padding-top ion-no-margin ">

@@ -5,13 +5,14 @@
 </ion-header>
 
 <ion-content>
+  <div id="container-list" style="height: 100%;">
   <ion-row>
     <button id="indietro" routerLink="/nuovapagina" routerLinkActive="active">
       <ion-icon class="ion-no-margin" name="chevron-back-outline"></ion-icon>
       indietro
     </button>
   </ion-row>
-  <div class="ion-margin ion-padding-top">
+  <div class="ion-margin ion-padding-top" style=" ">
     <form style="display: flex; flex-direction: column;width: 40%;" #g="ngForm">
       <ion-label>ID</ion-label>
       <input style="margin-bottom: 0.7em; border: hidden; border-top: 2px solid gray;border-right: 2px solid gray; border-radius: 0px 10px 5px 5px;" type="number" placeholder="id..." [ngModel] name="id" required>
@@ -46,6 +47,7 @@
         </div>
       </ion-row>
     </form>
+  </div>
   </div>
 </ion-content>
 
